@@ -7,7 +7,8 @@ dotenv.config();
 const app = express();
 
 //      middlewares
-app.use("/users", userRouter);
+app.use(express.json());
+app.use("/user", userRouter);
 
 
 mongoose.connect(

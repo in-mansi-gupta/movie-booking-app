@@ -1,10 +1,14 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from 'dotenv';
+import userRouter from "./routes/user-routes.js";
 
 dotenv.config();
-
 const app = express();
+
+//      middlewares
+app.use("/users", userRouter);
+
 
 mongoose.connect(
     `mongodb+srv://admin:${process.env.MONGODB_PASSWORD}@cluster0.zrl2f.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`

@@ -87,7 +87,7 @@ export const login = async (req, res, next) => {
     catch (error) { return console.log(error); }
 
     if(!existingUser) {
-        return res.status(404).json({message: "User does not exist"});
+        return res.status(400).json({message: "User does not exist"});
     }
 
     const isPasswordCorrect = bcrypt.compareSync(password, existingUser.password);
@@ -96,5 +96,5 @@ export const login = async (req, res, next) => {
         return res.status(400).json({message: "Incorrect Password"});
     }
 
-    return res.status(200).json({message: "Login Successfull"});
+    return res.status(200).json({message: "Login Successful"});
 };

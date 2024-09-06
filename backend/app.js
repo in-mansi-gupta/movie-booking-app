@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from 'dotenv';
 import userRouter from "./routes/user-routes.js";
 import adminRouter from "./routes/admin-routes.js";
+import movieRouter from "./routes/movie-routes.js";
 
 dotenv.config();
 const app = express();
@@ -11,6 +12,7 @@ const app = express();
 app.use(express.json());
 app.use("/user", userRouter);
 app.use("/admin", adminRouter);
+app.use("/movie", movieRouter);
 
 
 mongoose.connect(
